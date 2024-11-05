@@ -2,7 +2,7 @@
 
 It is the relation between the input size and Running time of an algorithm.
 
-## For example:
+## For example
 
 If we write just the main() function and add 1 print statement to it:
 
@@ -95,7 +95,7 @@ is something that increases the minimum amount of operations with the input size
 
 ## Example
 
-1.  Lets take this code into account:
+1. Lets take this code into account:
 
 ```java
 public static void main(String args[]){
@@ -249,7 +249,9 @@ A.K.A Big O of 1
 
 Whenever we are in interviews or competetive coding we always take worst case time complexity, so Big O. Why you may ask. Because we want to measure the worst and the longest time the allgoritm can take.
 
-### Another example
+### More examples
+
+1.
 
 ```java
 public static void main(String[] args){
@@ -274,8 +276,117 @@ $$
 n \times n
 $$
 
-Or 
+Or
 
 $$
 n^2
 $$
+
+So the total time complexity turns out to be $\mathcal{O}(n^2)$
+
+2.
+
+```java
+public static void main(String args[]) {
+    Scanner scanner = new Scanner(System.in);
+    int n = scanner.nextInt();
+    int m = scanner.nextInt();
+
+    for(int i = 0; i<n; i++){
+        for(int j=0; j<m; j++){
+            System.out.println("Hello");
+        }
+    }
+}
+```
+
+The outer loop runs `n` times and the inner loop runs `m` times.
+
+Here the worst case time complexity is $\mathcal{O}(n \times m)$ or $\mathcal{O}(nm)$.
+
+3.
+
+```java
+public static void main(String args[]) {
+    Scanner scanner = new Scanner(System.in);
+    int n = scanner.nextInt();
+    int m = scanner.nextInt();
+
+    for(int i = 0; i<n; i++){
+        System.out.println("Hello");
+    }
+
+    for(int j=0; j<m; j++){
+        System.out.println("Hello");
+    }
+}
+```
+
+The first loop runs `n` times and the second loop runs `m` times. So our time complexity is $\mathcal{O}(n + m)$.
+
+But if let's say $n = 10^6$ and $m = 3$ , So the time complexity will move more toward $n$, hence it becomes $\mathcal{O}(n)$.
+
+4.
+
+Compare the following time complexities:
+
+- n
+- $n^2$
+- $n^3$
+
+Lets try a smaller input:
+$n=1$
+
+- So $\mathcal{O}(n)$ is just 1 operation
+- $n^2$ is just 1 operation.
+- $n^3$ is just 1 operation.
+
+So it constant no matter what.
+
+Similarly, if $n=2$,
+
+- $\mathcal{O}(n)$ is 2
+- But $n^2$ is 4 operations.
+- And $n^3$ is 8 operations.
+
+OR $n=3$,
+
+- $\mathcal{O}(n) = 3 \text{ operations.}$
+- $\mathcal{O}(n^2) = 9 \text{ operations.}$
+- $\mathcal{O}(n^3) = 27 \text{ operations.}$
+
+This is still small, lets tak $n=10^5$
+
+- $\mathcal{O}(n) = 10^5 \text{ operations}$
+- $\mathcal{O}(n^2) = 10^10 \text{ operations}$
+- $\mathcal{O}(n^3) = 10^15 \text{ operations}$
+
+Now this difference is _*huge*_.
+
+Now this was just time complexity, but 1 more factor is...
+
+# Space complexity
+
+It is the measure of the space the code takes in memory.
+
+It depends on
+
+- The number of variables
+
+If we take the following code:
+
+```java
+public static void main(String args[]) {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+
+    for (int i = 0; i < n; i++) {
+        System.out.println("Hello");
+    }
+}
+```
+
+We can visualize our memory:
+![alt text](image.png)
+
+## In arrays the input size actually affects the memory.
